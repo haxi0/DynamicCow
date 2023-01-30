@@ -45,7 +45,7 @@ struct ContentView: View {
                         isDoing = true
                         isEnabled = false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 15){
-                            respring()
+                            respringBackboard()
                         }
                         
                     }else{
@@ -60,7 +60,7 @@ struct ContentView: View {
                         isDoing = true
                         isEnabled = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 15){
-                            respring()
+                            respringBackboard()
                         }
                         
                     }
@@ -136,15 +136,6 @@ struct ContentView: View {
 
         overwriteFile(newData, plistPath)
     }
-    
-    
-    func respring(){
-        guard let window = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).first else { return }
-        while true {
-           window.snapshotView(afterScreenUpdates: false)
-        }
-    }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
